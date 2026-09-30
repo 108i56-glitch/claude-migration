@@ -93,6 +93,7 @@ CSS = """
 --ink:#F0E7DB;--ink-2:#B3A190;--ink-3:#8B7A69;--rule:#39312B;--green:#4E6753;--green-deep:#9CBCA1;--green-soft:#26302A;
 --peach:#6E4E3D;--peach-soft:#33251E;--accent:#E3775F;--accent-soft:#3B2620;--shadow:0 1px 2px rgba(0,0,0,.4)}}
 *{box-sizing:border-box}
+a{color:var(--green-deep)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Golos Text","Segoe UI",system-ui,sans-serif;font-size:16px;line-height:1.6}
 .wrap{max-width:980px;margin:0 auto;padding:0 16px 96px}
 header{padding:56px 0 32px;border-bottom:1px solid var(--rule)}
