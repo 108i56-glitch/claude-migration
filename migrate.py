@@ -94,6 +94,20 @@ def classify(title, summary, body, projects, min_score=2):
 
 # ---------------------------------------------------------------- Markdown
 
+SECRET_RES = [
+    (re.compile(r'\b\d{8,10}:[A-Za-z0-9_-]{35}\b'), '[токен бота скрыт]'),
+    (re.compile(r'\bsk-ant-[A-Za-z0-9_-]{20,}'), '[ключ API скрыт]'),
+    (re.compile(r'\b(?:ghp|gho|github_pat)_[A-Za-z0-9_]{20,}'), '[токен GitHub скрыт]'),
+    (re.compile(r'\bAIza[0-9A-Za-z_-]{35}\b'), '[ключ Google скрыт]'),
+]
+
+
+def redact(text):
+    for rx, repl in SECRET_RES:
+        text = rx.sub(repl, text)
+    return text
+
+
 def slug(s, n=60):
     s = re.sub(r'[\\/:*?"<>|\n\r\t]+', ' ', s or '').strip()
     s = re.sub(r'\s+', '_', s)
@@ -234,7 +248,7 @@ def main():
             fn += '_'
         used.add(fn)
         path = out / p['folder'] / 'чаты' / (fn + '.md')
-        path.write_text(md, encoding='utf-8')
+        path.write_text(redact(md), encoding='utf-8')
         rows.append(dict(date=c['created_at'][:10], title=c.get('name') or '', project=p['name'],
                          messages=len(c['chat_messages']), chars=len(chat_text(c)),
                          empty='да' if empty else '', match=', '.join(hits[:6]),
