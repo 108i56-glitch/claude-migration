@@ -1,17 +1,5 @@
 {
   "mcpServers": {
-    "perplexity": {
-      "type": "http",
-      "url": "https://api.perplexity.ai/mcp"
-    },
-    "firecrawl": {
-      "type": "http",
-      "url": "https://mcp.firecrawl.dev/v2/mcp"
-    },
-    "composio": {
-      "type": "http",
-      "url": "https://connect.composio.dev/mcp"
-    },
     "playwright": {
       "type": "stdio",
       "command": "npx",

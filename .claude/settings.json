@@ -1,3 +1,3 @@
 {
-  "enabledMcpjsonServers": ["perplexity", "firecrawl", "composio", "playwright"]
+  "enabledMcpjsonServers": ["playwright"]
 }
